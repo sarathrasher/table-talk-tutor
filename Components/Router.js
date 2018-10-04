@@ -4,32 +4,31 @@ import SearchScreen from '../Screens/SearchScreen'
 import TrendsScreen from '../Screens/TrendsScreen'
 import { createStackNavigator } from 'react-navigation';
 import HomeScreen from '../Screens/HomeScreen';
+import SmartFetchTrends from './FetchTrends';
 
 const Routes = createStackNavigator(
   {
     Home: {
-      screen: HomeScreen
+      screen: SmartFetchTrends
     },
-    // Trends: {
-    //   screen: TrendsScreen
-    // },
-    // Search: {
-    //   search: SearchScreen
-    // }
+    Search: {
+      screen: SearchScreen
+    }
   },
   {
     initialRouteName: 'Home',
-    navigationOption: {
+    navigationOptions: {
+      title: 'Discover',
       headerStyle: {
         backgroundColor: 'transparent'
       },
       headerTitleStyle: {
-        fontWEight: 'bold',
+        fontWeight: 'bold',
         color: '#fff',
         zIndex: 1,
         fontSize: 18,
         lineHeight: 23,
-        fontFamily: 'CircularStd-Bold'
+        // fontFamily: 'CircularStd-Bold'
       },
       headerTintColor: '#fff',
       animationEnabled: true

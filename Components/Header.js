@@ -1,19 +1,16 @@
-import React from "react";
-import { Header } from "react-navigation";
-import { View, Platform } from "react-native";
+import React, { Component } from 'react';
+import { Container, Header, Left, Body, Right, Title, Subtitle } from 'native-base';
 
+let TitleHeader = () =>
+  <Container>
+    <Header>
+      <Left />
+      <Body>
+        <Title>Table Talk Tutor</Title>
+        <Subtitle>Subtitle</Subtitle>
+      </Body>
+      <Right />
+    </Header>
+  </Container>
 
-const CustomHeader = props => {
-  return (
-    <View
-      style={{
-        height: 56,
-        marginTop: Platform.OS == "ios" ? 20 : 0
-      }}
-    >
-      <Header {...props} />
-    </View>
-  );
-};
-
-export default CustomHeader;
+export default TitleHeader;
