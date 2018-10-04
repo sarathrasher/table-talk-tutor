@@ -2,19 +2,17 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import Header from '../Components/Header';
+import TrendRow from '../Components/TrendRow';
+import PickerForm from '../Components/PickerForm';
 
 let TrendsScreen = (props) =>
-  <View>
+  <View style={styles.container}>
+    <PickerForm />
     {props.trends.map(trend => 
-      <TouchableOpacity 
+      <TrendRow 
         key={trend.url}
-        style={styles.container}
-        onPress={
-          () => console.log('You pressed me!')
-        }>
-        <Text>{trend.name}</Text>
-      </TouchableOpacity>
-      )}
+        trend={trend}/>
+    )}
   </View>
   
 
@@ -30,3 +28,4 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+

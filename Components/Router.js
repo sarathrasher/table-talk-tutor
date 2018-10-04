@@ -4,23 +4,21 @@ import SearchScreen from '../Screens/SearchScreen'
 import TrendsScreen from '../Screens/TrendsScreen'
 import { createStackNavigator } from 'react-navigation';
 import HomeScreen from '../Screens/HomeScreen';
+import SmartFetchTrends from './FetchTrends';
 
 const Routes = createStackNavigator(
   {
     Home: {
-      screen: HomeScreen
+      screen: SmartFetchTrends
     },
-    Trends: {
-      screen: TrendsScreen
-    },
-    // Search: {
-    //   search: SearchScreen
-    // }
+    Search: {
+      screen: SearchScreen
+    }
   },
   {
     initialRouteName: 'Home',
     navigationOptions: {
-      title: 'Table Talk Tutor',
+      title: 'Discover',
       headerStyle: {
         backgroundColor: 'transparent'
       },

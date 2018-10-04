@@ -4,33 +4,28 @@ import SERVER_URL from '../env';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import TrendsScreen from '../Screens/TrendsScreen'
 
-  class FetchTrends extends React.Component {
-    componentWillMount() {
-      fetch(SERVER_URL + 'trends')
-        .then(res => {
-          return res.text() 
-        }) 
-        .then(trends => {
-          let trendsObject = JSON.parse(trends);
-          this.props.dispatch({
-            type: 'LOAD_TRENDS',
-            trends: trendsObject[0].trends
-          });
+class FetchTrends extends React.Component {
+  componentDidMount() {
+    fetch(SERVER_URL + 'trends')
+      .then(res => {
+        return res.text() 
+      }) 
+      .then(trends => {
+        let trendsObject = JSON.parse(trends);
+        console.log('hi');
+        this.props.dispatch({
+          type: 'LOAD_TRENDS',
+          trends: trendsObject[0].trends.slice(0, 10)
         });
-    }
-    render() {
-      if (this.props.trends.length < 0) {
-        return <Text>Loading...</Text>
-      }
-      else {
-        return (
-          <TrendsScreen />
-        )
-
-      }
+      });
+  }
+  render() {
+      return (
+        <TrendsScreen {...this.props}/>
+      )
     }
   }
 
-let SmartFetchTrends = connect(state => ({trends: state.trends}))(FetchTrends)
+let SmartFetchTrends = connect(state => ({dispatch: state.dispatch}))(FetchTrends)
 
 export default SmartFetchTrends;
