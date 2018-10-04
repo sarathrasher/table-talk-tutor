@@ -8,12 +8,7 @@ import FetchTrends from '../Components/FetchTrends'
 let HomeScreen = () =>
   <Provider store={store}>
     <View style={styles.container}>
-      <TouchableOpacity
-        onPress={
-          () => console.log('You tapped me!')
-        }>
         <FetchTrends />
-      </TouchableOpacity>
     </View>
   </Provider>
 

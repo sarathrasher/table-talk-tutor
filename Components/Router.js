@@ -10,26 +10,27 @@ const Routes = createStackNavigator(
     Home: {
       screen: HomeScreen
     },
-    // Trends: {
-    //   screen: TrendsScreen
-    // },
+    Trends: {
+      screen: TrendsScreen
+    },
     // Search: {
     //   search: SearchScreen
     // }
   },
   {
     initialRouteName: 'Home',
-    navigationOption: {
+    navigationOptions: {
+      title: 'Table Talk Tutor',
       headerStyle: {
         backgroundColor: 'transparent'
       },
       headerTitleStyle: {
-        fontWEight: 'bold',
+        fontWeight: 'bold',
         color: '#fff',
         zIndex: 1,
         fontSize: 18,
         lineHeight: 23,
-        fontFamily: 'CircularStd-Bold'
+        // fontFamily: 'CircularStd-Bold'
       },
       headerTintColor: '#fff',
       animationEnabled: true
