@@ -1,13 +1,29 @@
 let loadTrends = (oldState, action) => {
-  console.log(action.trends);
   return {
     ...oldState,
     trends: action.trends
   }
 }
 
+let selectTrend = (oldState, action) => {
+  return {
+    ...oldState,
+    selectedTrend: action.trend,
+  }
+}
+
+let selectSearchTerm = (oldState, action) => {
+  console.log(action.term)
+  return {
+    ...oldState,
+    selectedSearchTerm: action.term,
+  }
+}
+
 let reducers = {
   'LOAD_TRENDS': loadTrends,
+  'SELECT_TREND': selectTrend,
+  'SELECT_SEARCH_TERM': selectSearchTerm,
 }
 
 let reducer = (oldState, action) => {

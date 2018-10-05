@@ -12,7 +12,6 @@ class FetchTrends extends React.Component {
       }) 
       .then(trends => {
         let trendsObject = JSON.parse(trends);
-        console.log('hi');
         this.props.dispatch({
           type: 'LOAD_TRENDS',
           trends: trendsObject[0].trends.slice(0, 10)
