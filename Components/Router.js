@@ -20,13 +20,13 @@ const Routes = createStackNavigator(
     navigationOptions: {
       title: 'Discover',
       headerStyle: {
-        backgroundColor: 'transparent'
+        backgroundColor: '#2962ff',
       },
       headerTitleStyle: {
         fontWeight: 'bold',
-        color: '#fff',
+        color: '#FFF',
         zIndex: 1,
-        fontSize: 18,
+        fontSize: 20,
         lineHeight: 23,
         // fontFamily: 'CircularStd-Bold'
       },
