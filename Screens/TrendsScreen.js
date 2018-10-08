@@ -4,7 +4,6 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import Header from '../Components/Header';
 import TrendRow from '../Components/TrendRow';
 import PickerForm from '../Components/PickerForm';
-import GoogleSearchBar from '../Components/GoogleSearchBar';
 import TempForm from '../Components/TempSearchBar'
 
 let TrendsScreen = (props) =>
