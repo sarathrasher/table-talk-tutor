@@ -11,9 +11,10 @@ class FetchSearchResults extends React.Component {
       }) 
       .then(searchResults => {
         let searchResultsObject = JSON.parse(searchResults);
+        console.log(searchResultsObject.items.slice(0, 4))
         this.props.dispatch({
           type: 'LOAD_SEARCH_RESULTS',
-          trends: searchResultsObject
+          searchResults: searchResultsObject.items.slice(0, 1)
         });
       });
   }

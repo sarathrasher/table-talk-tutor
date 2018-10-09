@@ -5,23 +5,44 @@ import Header from '../Components/Header';
 import TrendRow from '../Components/TrendRow';
 import PickerForm from '../Components/PickerForm';
 import TempForm from '../Components/TempSearchBar'
+import SERVER_URL from '../env'
 
-let TrendsScreen = (props) =>
-  <View style={styles.container}>
-    {/* <GoogleSearchBar /> */}
-    <TempForm />
-    <PickerForm />
-      <Text style={styles.header}>Trending Topics</Text>
-      {props.trends.map(trend => 
-        <TrendRow 
-          key={trend.url}
-          trend={trend}/>
-      )}
- {/* <View style={styles.main}> */}
-  </View>
+class TrendsScreen extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  componentDidMount() {
+    fetch(SERVER_URL + 'trends')
+      .then(res => {
+        return res.text() 
+      }) 
+      .then(trends => {
+        let trendsObject = JSON.parse(trends);
+        this.props.dispatch({
+          type: 'LOAD_TRENDS',
+          trends: trendsObject[0].trends.slice(0, 10)
+        });
+      });
+  }
+  render() {
+    return (
+      <View style={styles.container}>
+        <TempForm {...this.props}/>
+        <PickerForm />
+          <Text style={styles.header}>Trending Topics</Text>
+          {this.props.trends.map(trend => 
+            <TrendRow 
+              key={trend.url}
+              trend={trend}/>
+          )}
+      </View>
+    )
+  }
+
+}
+
   
-
-let SmartTrendsScreen = connect(state => ({trends: state.trends}))(TrendsScreen)
+let SmartTrendsScreen = connect(state => ({dispatch: state.dispatch, trends: state.trends}))(TrendsScreen)
 
 export default SmartTrendsScreen
 
