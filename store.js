@@ -6,6 +6,7 @@ let initialState = {
   trends: [],
   selectedTrend: '',
   selectedSearchTerm: '',
+  searchResults: [],
 };
 
 let store = createStore(

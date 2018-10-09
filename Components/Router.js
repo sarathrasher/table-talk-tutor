@@ -1,19 +1,13 @@
 import React from 'react';
-import { View } from 'react-native';
 import SearchScreen from '../Screens/SearchScreen'
-import TrendsScreen from '../Screens/TrendsScreen'
 import { createStackNavigator } from 'react-navigation';
-import HomeScreen from '../Screens/HomeScreen';
-import SmartFetchTrends from './FetchTrends';
+// import SmartFetchTrends from './FetchTrends';
+import SmartTrendsScreen from '../Screens/TrendsScreen';
 
 const Routes = createStackNavigator(
   {
-    Home: {
-      screen: SmartFetchTrends
-    },
-    Search: {
-      screen: SearchScreen
-    }
+    Home: SmartTrendsScreen,
+    Search: SearchScreen
   },
   {
     initialRouteName: 'Home',
