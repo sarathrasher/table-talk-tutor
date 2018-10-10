@@ -17,13 +17,14 @@ export default ResultRow
 
 styles = {
   container: {
-
+    padding: 10
   },
   text: {
-
+    fontSize: 20
   },
   link: {
     textDecorationLine: 'underline',
-    color: 'blue'
+    color: 'blue',
+    fontSize: 24
   }
 }

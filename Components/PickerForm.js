@@ -19,6 +19,10 @@ class PickerForm extends React.Component {
 
     const options = [
       {
+        key: 'News',
+        label: 'News',
+      },
+      {
         key: 'Who is',
         label: 'Who is',
       },
