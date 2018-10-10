@@ -5,7 +5,13 @@ import { connect } from 'react-redux';
 
 let SearchScreen = (props) =>
   <View>
-    <ScrollView contentContainerStyle={{flexGrow:1}} style={styles.container}>
+    <ScrollView 
+      // contentContainerStyle={{flexGrow:1}} 
+      horizontal={true}
+      decelerationRate={0}
+      snapToInterval={350 + 24}
+      snapToAlignment={"center"}
+      >
       {props.searchResults.map(result => 
         <ResultRow key={result.link} result={result} />
         )}
@@ -18,6 +24,8 @@ export default connect(state => ({searchResults: state.searchResults}))(SearchSc
 const styles = StyleSheet.create({
   container: {
     padding: 12,
+    flexDirection: 'row'
+    
     // backgroundColor: '#fff',
     // alignItems: 'center',
     // justifyContent: 'center',
