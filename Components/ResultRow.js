@@ -1,30 +1,60 @@
 import React from 'react';
-import { Linking, View,  TouchableOpacity, Dimensions  } from 'react-native';
+import { Linking, View,  TouchableOpacity, WebView, Dimensions  } from 'react-native';
 import { Container, Header, Content, Card, CardItem, Text, Body } from "native-base";
+import { connect } from 'react-redux';
 
-let ResultRow = (props) =>
-  <Container>
-    <Header />
-    <Content padder>
-      <Card style={{width: (Dimensions.get('window').width * 0.8)}}>
-        <CardItem header bordered>
-          <TouchableOpacity  
-            onPress={() =>
-              Linking.openURL(props.result.link)}
-            >
-            <Text style={styles.link}>{props.result.title}</Text>
-          </TouchableOpacity>
-        </CardItem>
-        <CardItem bordered>
-          <Body>
-            <Text style={styles.text}>{props.result.snippet}</Text>
-          </Body>
-        </CardItem>
-      </Card>
-    </Content>
-  </Container>
+class ResultRow extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      clicked: false
+    }
+  }
 
-export default ResultRow
+  render() {
+    // if (this.state.clicked === false) {
+      return (
+        <Container>
+            <Header />
+            <Content padder>
+              <Card style={{width: (Dimensions.get('window').width * 0.8)}}>
+                <CardItem header bordered>
+                <TouchableOpacity
+                  onPress={() => {
+                    this.setState({clicked: true})
+                    this.props.dispatch({
+                      type: 'SAVE_LINK',
+                      link: this.props.result.link
+                    })
+                    this.props.navigation.navigate('WebView')
+                  }
+                  }
+                  >
+                    <Text style={styles.link}>{this.props.result.title}</Text>
+                  </TouchableOpacity>
+                </CardItem>
+                <CardItem bordered>
+                  <Body>
+                    <Text style={styles.text}>{this.props.result.snippet}</Text>
+                  </Body>
+                </CardItem>
+              </Card>
+            </Content>
+          </Container>
+
+      )
+    // } 
+    // else {
+    //   return (
+    //     <WebView  
+    //     source={{uri: this.props.result.link}}
+    //     />
+    //   )
+    // } 
+  }
+}
+  
+export default connect(props => ({dispatch: props.dispatch}))(ResultRow);
 
 styles = {
   container: {

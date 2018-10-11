@@ -27,11 +27,20 @@ let loadSearchResults = (oldState, action) => {
   }
 }
 
+let saveLink = (oldState, action) => {
+  return {
+    ...oldState,
+    link: action.link
+  }
+}
+
+
 let reducers = {
   'LOAD_TRENDS': loadTrends,
   'SELECT_TREND': selectTrend,
   'SELECT_SEARCH_TERM': selectSearchTerm,
   'LOAD_SEARCH_RESULTS': loadSearchResults,
+  'SAVE_LINK': saveLink
 }
 
 let reducer = (oldState, action) => {

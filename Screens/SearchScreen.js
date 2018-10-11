@@ -14,6 +14,7 @@ let SearchScreen = (props) =>
       >
       {props.searchResults.map(result => 
         <ResultRow 
+          {...props}
           key={result.link} 
           result={result} 
           style={styles.card}
