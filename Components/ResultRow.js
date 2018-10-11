@@ -1,12 +1,12 @@
 import React from 'react';
-import { Linking, View,  TouchableOpacity  } from 'react-native';
+import { Linking, View,  TouchableOpacity, Dimensions  } from 'react-native';
 import { Container, Header, Content, Card, CardItem, Text, Body } from "native-base";
 
 let ResultRow = (props) =>
   <Container>
     <Header />
     <Content padder>
-      <Card style={{width: 350}}>
+      <Card style={{width: (Dimensions.get('window').width * 0.8)}}>
         <CardItem header bordered>
           <TouchableOpacity  
             onPress={() =>

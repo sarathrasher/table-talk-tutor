@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import Header from '../Components/Header';
 import TrendRow from '../Components/TrendRow';
 import PickerForm from '../Components/PickerForm';
-import TempForm from '../Components/TempSearchBar'
+import TempForm from '../Components/SearchBar'
 import SERVER_URL from '../env'
 
 class TrendsScreen extends React.Component {

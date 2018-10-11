@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, ScrollView, View, Text } from 'react-native';
+import { StyleSheet, ScrollView, View, Text, Dimensions } from 'react-native';
 import ResultRow from '../Components/ResultRow'
 import { connect } from 'react-redux';
 
@@ -9,7 +9,7 @@ let SearchScreen = (props) =>
       // contentContainerStyle={{flexGrow:1}} 
       horizontal={true}
       decelerationRate={0}
-      snapToInterval={350 + 24}
+      snapToInterval={(Dimensions.get('window').width * 0.8) + 24}
       snapToAlignment={"center"}
       >
       {props.searchResults.map(result => 
