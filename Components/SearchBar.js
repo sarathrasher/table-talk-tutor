@@ -11,7 +11,8 @@ class SearchForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      submit: false
+      submit: false,
+      searchText: ''
     }
   }
   fetchSearchResults = () => {
@@ -37,10 +38,15 @@ class SearchForm extends React.Component {
       return (
         <View>
           <FormLabel>Google Search</FormLabel>
-          <FormInput>{this.props.selectedTrend} {this.props.selectedSearchTerm}</FormInput>>
+          <FormInput 
+            onChangeText={(text) =>
+              this.setState({text: text})}
+          >{this.props.selectedTrend} {this.props.selectedSearchTerm}</FormInput>
           {/* <FormValidationMessage>Error message</FormValidationMessage> */}
           <Button 
-            title='BUTTON' 
+            backgroundColor='#ff3355'
+            style={styles.button}
+            title='Search' 
             onPress={ () =>
               this.fetchSearchResults()
             }
@@ -51,3 +57,12 @@ class SearchForm extends React.Component {
 }
 
 export default connect(state => ({selectedTrend: state.selectedTrend, selectedSearchTerm: state.selectedSearchTerm}))(SearchForm);
+
+styles = {
+  button: {
+    backgroundColor: '#ff3355'
+  },
+  container: {
+
+  }
+}
