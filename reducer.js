@@ -11,7 +11,7 @@ let selectTrend = (oldState, action) => {
     selectedTrend: action.trend,
     searchText: {
       ...oldState.searchText,
-      selectedTrend: action.trend
+      selectedTrend: `${action.trend} `
     }
   }
 }
@@ -22,7 +22,7 @@ let selectSearchTerm = (oldState, action) => {
     selectedSearchTerm: action.term,
     searchText: {
       ...oldState.searchText,
-      selectedSearchTerm: action.term
+      selectedSearchTerm: `${action.term} `
     }
   }
 }
@@ -47,14 +47,14 @@ let saveSearchText = (oldState, action) => {
   if (!action.searchTextInput.includes(oldState.selectedTrend) && !action.searchTextInput.includes(oldState.selectedSearchTerm)) {
     newString = action.searchTextInput
   } else if (action.searchTextInput.includes(oldState.selectedTrend) && action.searchTextInput.includes(oldState.selectedSearchTerm)) {
-    let replacedString = action.searchTextInput.replace(oldState.selectedTrend, '');
-    newString = replacedString.replace(oldState.selectedSearchTerm, '');
+    let replacedString = action.searchTextInput.replace(`${oldState.selectedTrend} `, '');
+    newString = replacedString.replace(`${oldState.selectedSearchTerm} `, '');
   }
   else if (action.searchTextInput.includes(oldState.selectedSearchTerm) && !action.searchTextInput.includes(selectedTrend)) {
-    newString = action.searchTextInput.replace(oldState.selectedSearchTerm, '');
+    newString = action.searchTextInput.replace(`${oldState.selectedSearchTerm} `, '');
   } 
   else if (action.searchTextInput.includes(oldState.selectedTrend) && !action.searchTextInput.includes(selectedSearchTerm)) {
-    newString = action.searchTextInput.replace(oldState.selectedTrend, '');
+    newString = action.searchTextInput.replace(`${oldState.selectedTrend} `, '');
   } 
 
   return {

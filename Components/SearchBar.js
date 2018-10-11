@@ -12,7 +12,6 @@ class SearchForm extends React.Component {
     super(props);
     this.state = {
       submit: false,
-      searchText: ''
     }
   }
   fetchSearchResults = () => {
@@ -30,7 +29,7 @@ class SearchForm extends React.Component {
       this.setState({
         submit: true
       })
-      this.props.navigation.navigate('Search');
+      this.props.navigation.navigate('Search', {title: 'Search'});
     })
   }
 
@@ -44,7 +43,7 @@ class SearchForm extends React.Component {
                 type: 'SAVE_SEARCH_TEXT',
                 searchTextInput: text 
               })}
-          > {this.props.searchText.selectedTrend} {this.props.searchText.selectedSearchTerm} {this.props.searchText.searchTextInput}
+          >{this.props.searchText.selectedTrend}{this.props.searchText.selectedSearchTerm}{this.props.searchText.searchTextInput}
           </FormInput>
           {/* <FormValidationMessage>Error message</FormValidationMessage> */}
           <Button 

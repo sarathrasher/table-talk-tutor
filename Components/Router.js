@@ -7,9 +7,18 @@ import WebViewScreen from '../Screens/WebViewScreen'
 
 const Routes = createStackNavigator(
   {
-    Home: SmartTrendsScreen,
-    Search: SearchScreen,
-    WebView: WebViewScreen,
+    Home: {
+      screen: SmartTrendsScreen,
+      title: 'Discover'
+    },
+    Search: {
+      screen: SearchScreen,
+      title: 'Search'
+    },
+    WebView: {
+      screen: WebViewScreen,
+      title: 'Explore More'
+    }
   },
   {
     initialRouteName: 'Home',
