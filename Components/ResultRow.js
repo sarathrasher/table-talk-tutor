@@ -26,7 +26,7 @@ class ResultRow extends React.Component {
                       type: 'SAVE_LINK',
                       link: this.props.result.link
                     })
-                    this.props.navigation.navigate('WebView')
+                    this.props.navigation.navigate('WebView', {title: 'Explore More'})
                   }
                   }
                   >
