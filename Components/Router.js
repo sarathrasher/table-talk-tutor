@@ -3,11 +3,13 @@ import SearchScreen from '../Screens/SearchScreen'
 import { createStackNavigator } from 'react-navigation';
 // import SmartFetchTrends from './FetchTrends';
 import SmartTrendsScreen from '../Screens/TrendsScreen';
+import WebViewScreen from '../Screens/WebViewScreen'
 
 const Routes = createStackNavigator(
   {
     Home: SmartTrendsScreen,
-    Search: SearchScreen
+    Search: SearchScreen,
+    WebView: WebViewScreen,
   },
   {
     initialRouteName: 'Home',
