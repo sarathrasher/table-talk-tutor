@@ -13,7 +13,11 @@ let SearchScreen = (props) =>
       snapToAlignment={"center"}
       >
       {props.searchResults.map(result => 
-        <ResultRow key={result.link} result={result} />
+        <ResultRow 
+          key={result.link} 
+          result={result} 
+          style={styles.card}
+          />
         )}
     </ScrollView>
   </View>
@@ -30,4 +34,8 @@ const styles = StyleSheet.create({
     // alignItems: 'center',
     // justifyContent: 'center',
   },
+  card: {
+    width: 100,
+    height: 200
+  }
 });

@@ -6,7 +6,7 @@ let ResultRow = (props) =>
   <Container>
     <Header />
     <Content padder>
-      <Card style={styles.container}>
+      <Card style={{width: 350}}>
         <CardItem header bordered>
           <TouchableOpacity  
             onPress={() =>
@@ -24,22 +24,13 @@ let ResultRow = (props) =>
     </Content>
   </Container>
 
-  // <View style={styles.container}>
-  //   <TouchableOpacity  
-  //     onPress={() =>
-  //       Linking.openURL(props.result.link)}
-  //     >
-  //       <Text style={styles.link}>{props.result.title}</Text>
-  //     </TouchableOpacity>
-  //     <Text style={styles.text}>{props.result.snippet}</Text>
-  // </View>
-
 export default ResultRow
 
 styles = {
   container: {
     // padding: 10,
-    width: 350
+    width: 200,
+    height: 200,
   },
   text: {
     fontSize: 20
