@@ -4,9 +4,6 @@ import reducer from './reducer'
 
 let initialState = {
   trends: [],
-  selectedTrend: '',
-  selectedSearchTerm: '',
-  searchTextInput: '',
   searchResults: [],
   link: '',
   searchText: {

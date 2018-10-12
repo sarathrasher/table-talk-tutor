@@ -1,11 +1,12 @@
 import { FormLabel, FormInput, Button } from 'react-native-elements'
 import React from 'react';
-import { View, Text } from 'react-native'
+import { View, Text, TextInput } from 'react-native'
 import { connect } from 'react-redux'
 import FetchSearchResults from './SearchFetch'
 import { Container, Header, Content, Form, Item, Input } from 'native-base';
 import SERVER_URL from '../env'
 import SearchScreen from '../Screens/SearchScreen'
+import PickerForm from './WheelPicker';
 
 class SearchForm extends React.Component {
   constructor(props) {
@@ -35,17 +36,7 @@ class SearchForm extends React.Component {
 
   render() {
       return (
-        <View>
-          <FormLabel>Google Search</FormLabel>
-          <FormInput 
-            onChangeText={(text) =>
-              this.props.dispatch({
-                type: 'SAVE_SEARCH_TEXT',
-                searchTextInput: text 
-              })}
-          >{this.props.searchText.selectedTrend}{this.props.searchText.selectedSearchTerm}{this.props.searchText.searchTextInput}
-          </FormInput>
-          {/* <FormValidationMessage>Error message</FormValidationMessage> */}
+        <View style={styles.inputContainer}>
           <Button 
             backgroundColor='#ff3355'
             style={styles.button}
@@ -59,7 +50,7 @@ class SearchForm extends React.Component {
     }
 }
 
-export default connect(state => ({selectedTrend: state.selectedTrend, selectedSearchTerm: state.selectedSearchTerm, searchText: state.searchText}))(SearchForm);
+export default connect(state => ({searchText: state.searchText}))(SearchForm);
 
 styles = {
   button: {
@@ -67,5 +58,8 @@ styles = {
   },
   container: {
 
+  },
+  inputContainer: {
+    // flexDirection: 'row'
   }
 }

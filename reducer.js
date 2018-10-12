@@ -1,7 +1,7 @@
 let loadTrends = (oldState, action) => {
   return {
     ...oldState,
-    trends: action.trends
+    trends: action.trends,
   }
 }
 
