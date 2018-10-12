@@ -126,22 +126,19 @@ class WheelPicker extends React.Component {
             />
         </View>
         <View style={styles.input}>
-          <Text>Add Additional Comments</Text>
+          <Text style={styles.text}>Add Additional Comments</Text>
           <TextInput
+            placeholder='Add additional comments...'
             ref={(el) => {
                 this.inputRefs.company = el;
             }}
-            returnKeyType="go"
-            enablesReturnKeyAutomatically
+            returnKeyType="done"
             style={pickerSelectStyles.inputIOS}
             onChangeText={(text) =>
               this.props.dispatch({
                 type: 'SAVE_SEARCH_TEXT',
                 searchTextInput: text 
               })}
-            onSubmitEditing={() => {
-                Alert.alert('Success', 'Form submitted', [{ text: 'Okay', onPress: null }]);
-            }}
           />
         </View>
       </View>
@@ -157,11 +154,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#f2f4fc',
     justifyContent: 'flex-start',
     paddingHorizontal: 10,
-    // flexDirection: 'row',
     width: (Dimensions.get('window').width)
   },
   text: {
-    textAlign: 'center'
+    textAlign: 'center',
+    fontSize: 16
   },
   input: {
     paddingTop: 13,
