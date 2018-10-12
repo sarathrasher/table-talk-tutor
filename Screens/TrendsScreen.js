@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import Header from '../Components/Header';
 import TrendRow from '../Components/TrendRow';
-import PickerForm from '../Components/PickerForm';
-import TempForm from '../Components/SearchBar'
+import WheelPicker from '../Components/WheelPicker';
+import SearchBar from '../Components/SearchBar'
 import SERVER_URL from '../env'
 
 class TrendsScreen extends React.Component {
@@ -27,20 +27,13 @@ class TrendsScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <TempForm {...this.props}/>
-        <PickerForm />
-          <Text style={styles.header}>Trending Topics</Text>
-          {this.props.trends.map(trend => 
-            <TrendRow 
-              key={trend.url}
-              trend={trend}/>
-          )}
+        <Header />
+        <WheelPicker />
+        <SearchBar {...this.props}/>
       </View>
     )
   }
-
 }
-
   
 let SmartTrendsScreen = connect(state => ({dispatch: state.dispatch, trends: state.trends}))(TrendsScreen)
 
@@ -51,8 +44,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#f2f4fc',
     alignItems: 'center',
-    justifyContent: 'center',
-    padding: 15
+    justifyContent: 'flex-start',
+    paddingHorizontal: 15,
+    paddingTop: 40
   },
   main: {
     padding: 5
