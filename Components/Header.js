@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Container, Header, Left, Body, Right, Title, Subtitle } from 'native-base';
 import { Text, View } from 'react-native'
 import { connect } from 'react-redux'
 

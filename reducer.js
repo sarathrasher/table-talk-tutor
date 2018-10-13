@@ -27,11 +27,27 @@ let selectSearchTerm = (oldState, action) => {
   }
 }
 
-let loadSearchResults = (oldState, action) => {
+let loadGoogleResults = (oldState, action) => {
   // console.log(action.searchResults)
   return {
     ...oldState,
-    searchResults: action.searchResults,
+    googleResults: action.googleResults,
+  }
+}
+
+let loadBingResults = (oldState, action) => {
+  // console.log(action.searchResults)
+  return {
+    ...oldState,
+    bingResults: action.bingResults,
+  }
+}
+
+let loadTwitterResults = (oldState, action) => {
+  // console.log(action.searchResults)
+  return {
+    ...oldState,
+    twitterResults: action.twitterResults,
   }
 }
 
@@ -72,7 +88,9 @@ let reducers = {
   'LOAD_TRENDS': loadTrends,
   'SELECT_TREND': selectTrend,
   'SELECT_SEARCH_TERM': selectSearchTerm,
-  'LOAD_SEARCH_RESULTS': loadSearchResults,
+  'LOAD_GOOGLE_RESULTS': loadGoogleResults,
+  'LOAD_BING_RESULTS': loadBingResults,
+  'LOAD_TWITTER_RESULTS': loadTwitterResults,
   'SAVE_LINK': saveLink,
   'SAVE_SEARCH_TEXT': saveSearchText
 }

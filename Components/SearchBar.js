@@ -1,12 +1,8 @@
-import { FormLabel, FormInput, Button } from 'react-native-elements'
+import { Button } from 'react-native-elements'
 import React from 'react';
-import { View, Text, TextInput } from 'react-native'
+import { View, } from 'react-native'
 import { connect } from 'react-redux'
-import FetchSearchResults from './SearchFetch'
-import { Container, Header, Content, Form, Item, Input } from 'native-base';
-import SERVER_URL from '../env'
-import SearchScreen from '../Screens/SearchScreen'
-import PickerForm from './WheelPicker';
+import fetchGoogleResults from '../Actions/fetchGoogleResults';
 
 class SearchForm extends React.Component {
   constructor(props) {
@@ -16,22 +12,8 @@ class SearchForm extends React.Component {
     }
   }
   fetchSearchResults = () => {
-    fetch(SERVER_URL + 'search/' + this.props.searchText.selectedTrend + this.props.searchText.selectedSearchTerm + this.props.searchText.searchTextInput)
-    .then(res => {
-      let response = res.text();
-      return response
-    }) 
-    .then(searchResults => {
-      let searchResultsObject = JSON.parse(searchResults);
-      this.props.dispatch({
-        type: 'LOAD_SEARCH_RESULTS',
-        searchResults: searchResultsObject.items
-      });
-      this.setState({
-        submit: true
-      })
-      this.props.navigation.navigate('Search', {title: 'Search'});
-    })
+    fetchGoogleResults({...this.props});
+    this.props.navigation.navigate('Search', {title: 'Search'});
   }
 
   render() {

@@ -2,11 +2,8 @@ import SmartTrendsScreen from "../Screens/TrendsScreen";
 import { createBottomTabNavigator } from 'react-navigation';
 import SearchScreen from '../Screens/SearchScreen'
 import TrendsScreen from '../Screens/TrendsScreen'
-import { createStackNavigator } from 'react-navigation';
 import HomeScreen from '../Screens/HomeScreen';
 
-
-const TabBarComponent = (props) => (<BottomTabBar {...props} />);
 
 const TabBar = createBottomTabNavigator(
   {
