@@ -1,6 +1,6 @@
 import React from 'react';
-import { Linking, View,  TouchableOpacity, WebView, Dimensions  } from 'react-native';
-import { Container, Header, Content, Card, CardItem, Text, Body } from "native-base";
+import { TouchableOpacity, Dimensions  } from 'react-native';
+import { Container, Content, Card, CardItem, Text, Body } from "native-base";
 import { connect } from 'react-redux';
 
 class ResultRow extends React.Component {

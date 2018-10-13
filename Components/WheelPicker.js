@@ -1,8 +1,7 @@
 import React from 'react';
-import { Alert, Text, TextInput, StyleSheet, View, Dimensions } from 'react-native';
+import { Text, TextInput, StyleSheet, View, Dimensions } from 'react-native';
 import RNPickerSelect from 'react-native-picker-select';
 import { connect } from 'react-redux'
-import Picker from 'react-native-wheel-pickers';
 
 class WheelPicker extends React.Component {
   constructor(props) {

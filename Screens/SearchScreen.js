@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import ScrollViewRow from '../Components/ScrollViewRow'
 
 let SearchScreen = (props) =>
-  <ScrollViewRow />
+  <ScrollViewRow {...props}/>
 
 
 export default connect(state => ({searchResults: state.searchResults}))(SearchScreen);

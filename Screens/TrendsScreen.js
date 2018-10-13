@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, View} from 'react-native';
 import Header from '../Components/Header';
-import TrendRow from '../Components/TrendRow';
 import WheelPicker from '../Components/WheelPicker';
 import SearchBar from '../Components/SearchBar'
 import SERVER_URL from '../env'

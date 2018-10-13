@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, ScrollView, View, Text, Dimensions } from 'react-native';
+import { StyleSheet, ScrollView, View, Dimensions } from 'react-native';
 import ResultRow from './ResultRow'
 import { connect } from 'react-redux';
 
@@ -12,7 +12,7 @@ let ScrollViewRow = (props) =>
       snapToInterval={(Dimensions.get('window').width * 0.8) + 24}
       snapToAlignment={"center"}
       >
-      {props.searchResults.map(result => 
+      {props.googleResults.map(result => 
         <ResultRow 
           {...props}
           key={result.link} 
@@ -24,7 +24,7 @@ let ScrollViewRow = (props) =>
   </View>
 
 
-export default connect(state => ({searchResults: state.searchResults}))(ScrollViewRow);
+export default connect(state => ({googleResults: state.googleResults}))(ScrollViewRow);
 
 const styles = StyleSheet.create({
   container: {
