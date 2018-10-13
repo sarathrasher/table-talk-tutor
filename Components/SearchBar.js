@@ -3,6 +3,8 @@ import React from 'react';
 import { View, } from 'react-native'
 import { connect } from 'react-redux'
 import fetchGoogleResults from '../Actions/fetchGoogleResults';
+import fetchBingResults from '../Actions/fetchBingResults';
+import fetchTwitterResults from '../Actions/fetchTwitterResults'
 
 class SearchForm extends React.Component {
   constructor(props) {
@@ -13,6 +15,8 @@ class SearchForm extends React.Component {
   }
   fetchSearchResults = () => {
     fetchGoogleResults({...this.props});
+    fetchBingResults({...this.props});
+    fetchTwitterResults({...this.props});
     this.props.navigation.navigate('Search', {title: 'Search'});
   }
 
