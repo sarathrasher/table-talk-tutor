@@ -3,7 +3,7 @@ import { TouchableOpacity, Dimensions  } from 'react-native';
 import { Container, Content, Card, CardItem, Text, Body } from "native-base";
 import { connect } from 'react-redux';
 
-class ResultRow extends React.Component {
+class GoogleResultRow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -12,8 +12,7 @@ class ResultRow extends React.Component {
   }
 
   render() {
-    // if (this.state.clicked === false) {
-    console.log('hi')
+    console.log('Google')
     return (
       <Container>
         <Content padder>
@@ -43,18 +42,10 @@ class ResultRow extends React.Component {
       </Container>
 
       )
-    // } 
-    // else {
-    //   return (
-    //     <WebView  
-    //     source={{uri: this.props.result.link}}
-    //     />
-    //   )
-    // } 
   }
 }
   
-export default connect(props => ({dispatch: props.dispatch}))(ResultRow);
+export default connect(props => ({dispatch: props.dispatch}))(GoogleResultRow);
 
 styles = {
   container: {
