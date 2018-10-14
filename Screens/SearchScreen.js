@@ -1,22 +1,30 @@
 import React from 'react';
-import { StyleSheet, View, Text, Dimensions } from 'react-native';
-import ResultRow from '../Components/GoogleResultRow'
-import { connect } from 'react-redux';
+import { StyleSheet, View } from 'react-native';
 import ScrollViewRow from '../Components/ScrollViewRow'
 
 let SearchScreen = (props) =>
-  <View>
-    <ScrollViewRow type='google' {...props}/>
-    <ScrollViewRow type='bing' {...props}/>
-    <ScrollViewRow type='twitter'{...props}/>
+  <View style={styles.container}>
+    <ScrollViewRow 
+      style={{flex: 1}}
+      type='google' 
+      {...props}/>
+    <ScrollViewRow 
+      style={{flex: 1}}
+      type='bing' 
+      {...props}/>
+    <ScrollViewRow 
+      type='twitter'
+      {...props}
+      style={{flex: 1}}
+      />
   </View>
 
 export default SearchScreen
 
 const styles = StyleSheet.create({
   container: {
-    padding: 12,
-    flexDirection: 'row'
+    flexDirection: 'column',
+    flex: 1
     
     // backgroundColor: '#fff',
     // alignItems: 'center',

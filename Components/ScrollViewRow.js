@@ -33,17 +33,15 @@ class ScrollViewRow extends React.Component {
       />
     }
     return (
-      <View>
-        <ScrollView 
-          // contentContainerStyle={{flexGrow:1}} 
-          horizontal={true}
-          decelerationRate={0}
-          snapToInterval={(Dimensions.get('window').width * 0.8) + 24}
-          snapToAlignment={"center"}
-          >
-          {resultRow}
-        </ScrollView>
-      </View>
+      <ScrollView 
+        style={{flex: 1}}
+        horizontal={true}
+        decelerationRate={0}
+        snapToInterval={(Dimensions.get('window').width * 0.8) + 24}
+        snapToAlignment={"center"}
+        >
+        {resultRow}
+      </ScrollView>
     )
   }
 }

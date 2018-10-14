@@ -29,7 +29,7 @@ class GoogleResultRow extends React.Component {
               }
               }
               >
-                <Text style={styles.link}></Text>
+                <Text style={styles.link}>Twitter Result</Text>
               </TouchableOpacity>
             </CardItem>
             <CardItem bordered>
