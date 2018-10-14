@@ -1,9 +1,9 @@
 import React from 'react';
-import { TouchableOpacity, Dimensions  } from 'react-native';
+import { ScrollView, TouchableOpacity, Dimensions  } from 'react-native';
 import { Container, Content, Card, CardItem, Text, Body } from "native-base";
 import { connect } from 'react-redux';
 
-class GoogleResultRow extends React.Component {
+class BingResultRow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -12,9 +12,8 @@ class GoogleResultRow extends React.Component {
   }
 
   render() {
-    console.log('Bing')
     return (
-      <Container>
+      <ScrollView>
         <Content padder>
           <Card style={{width: (Dimensions.get('window').width * 0.8)}}>
             <CardItem header bordered>
@@ -23,29 +22,29 @@ class GoogleResultRow extends React.Component {
                 this.setState({clicked: true})
                 this.props.dispatch({
                   type: 'SAVE_LINK',
-                  // link: this.props.result.link
+                  link: this.props.result.url
                 })
                 this.props.navigation.navigate('WebView', {title: 'Explore More'})
               }
               }
               >
-                <Text style={styles.link}></Text>
+                <Text style={styles.link}>{this.props.result.name}</Text>
               </TouchableOpacity>
             </CardItem>
             <CardItem bordered>
               <Body>
-                <Text style={styles.text}></Text>
+                <Text style={styles.text}>{this.props.result.snippet}</Text>
               </Body>
             </CardItem>
           </Card>
         </Content>
-      </Container>
+      </ScrollView>
 
       )
   }
 }
   
-export default connect(props => ({dispatch: props.dispatch}))(GoogleResultRow);
+export default connect(props => ({dispatch: props.dispatch}))(BingResultRow);
 
 styles = {
   container: {

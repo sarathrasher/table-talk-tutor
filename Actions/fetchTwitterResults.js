@@ -10,7 +10,7 @@ let fetchBingResults = (props) => {
     let searchResultsObject = JSON.parse(searchResults);
     props.dispatch({
       type: 'LOAD_TWITTER_RESULTS',
-      twitterResults: searchResultsObject
+      twitterResults: searchResultsObject.statuses.slice(0, 10)
     });
   })
 }

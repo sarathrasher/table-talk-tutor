@@ -22,28 +22,34 @@ class ScrollViewRow extends React.Component {
         />
       )
     } else if (this.props.type === 'twitter') {
-      resultRow = <TwitterResultRow 
-        {...this.props}
-        style={styles.card}
-      />
+      resultRow = this.props.twitterResults.map(result =>
+        <TwitterResultRow 
+          {...this.props}
+          key={result.id}
+          style={styles.card}
+          result={result}
+        />
+      )
     } else if (this.props.type === 'bing') {
-      resultRow = <BingResultRow 
-        {...this.props}
-        style={styles.card}
-      />
+      resultRow =  this.props.bingResults.map(result => 
+        <BingResultRow 
+          {...this.props}
+          key={result.id} 
+          result={result} 
+          style={styles.card}
+        />
+      )
     }
     return (
-      <View>
-        <ScrollView 
-          // contentContainerStyle={{flexGrow:1}} 
-          horizontal={true}
-          decelerationRate={0}
-          snapToInterval={(Dimensions.get('window').width * 0.8) + 24}
-          snapToAlignment={"center"}
-          >
-          {resultRow}
-        </ScrollView>
-      </View>
+      <ScrollView 
+        style={{flex: 1}}
+        horizontal={true}
+        decelerationRate={0}
+        snapToInterval={(Dimensions.get('window').width * 0.8) + 24}
+        snapToAlignment={"center"}
+        >
+        {resultRow}
+      </ScrollView>
     )
   }
 }
@@ -63,6 +69,6 @@ const styles = StyleSheet.create({
   },
   card: {
     width: 100,
-    height: 200
+    height: (Dimensions.get('window').height * 0.2), 
   }
 });

@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity, Dimensions  } from 'react-native';
+import { ScrollView, TouchableOpacity, Dimensions  } from 'react-native';
 import { Container, Content, Card, CardItem, Text, Body } from "native-base";
 import { connect } from 'react-redux';
 
@@ -12,9 +12,8 @@ class GoogleResultRow extends React.Component {
   }
 
   render() {
-    console.log('Google')
     return (
-      <Container>
+      <ScrollView>
         <Content padder>
           <Card style={{width: (Dimensions.get('window').width * 0.8)}}>
             <CardItem header bordered>
@@ -39,7 +38,7 @@ class GoogleResultRow extends React.Component {
             </CardItem>
           </Card>
         </Content>
-      </Container>
+      </ScrollView>
 
       )
   }
