@@ -3,7 +3,7 @@ import { TouchableOpacity, Dimensions  } from 'react-native';
 import { Container, Content, Card, CardItem, Text, Body } from "native-base";
 import { connect } from 'react-redux';
 
-class GoogleResultRow extends React.Component {
+class TwitterResultRow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -45,7 +45,7 @@ class GoogleResultRow extends React.Component {
   }
 }
   
-export default connect(props => ({dispatch: props.dispatch}))(GoogleResultRow);
+export default connect(props => ({dispatch: props.dispatch}))(TwitterResultRow);
 
 styles = {
   container: {

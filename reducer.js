@@ -44,7 +44,7 @@ let loadBingResults = (oldState, action) => {
 }
 
 let loadTwitterResults = (oldState, action) => {
-  console.log(action.twitterResults)
+  // console.log(action.twitterResults)
   return {
     ...oldState,
     twitterResults: action.twitterResults,

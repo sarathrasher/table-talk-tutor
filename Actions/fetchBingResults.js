@@ -8,10 +8,10 @@ let fetchBingResults = (props) => {
   }) 
   .then(searchResults => {
     let searchResultsObject = JSON.parse(searchResults);
-    console.log('hello')
+    // console.log(searchResultsObject.webPages.value.slice(0, 10))
     props.dispatch({
       type: 'LOAD_BING_RESULTS',
-      bingResults: searchResultsObject
+      bingResults: searchResultsObject.webPages.value.slice(0, 10)
     });
   })
 }

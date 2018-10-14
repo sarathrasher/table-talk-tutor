@@ -3,7 +3,7 @@ import { TouchableOpacity, Dimensions  } from 'react-native';
 import { Container, Content, Card, CardItem, Text, Body } from "native-base";
 import { connect } from 'react-redux';
 
-class GoogleResultRow extends React.Component {
+class BingResultRow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -12,7 +12,7 @@ class GoogleResultRow extends React.Component {
   }
 
   render() {
-    console.log('Bing')
+    console.log(this.props.result)
     return (
       <Container>
         <Content padder>
@@ -23,18 +23,18 @@ class GoogleResultRow extends React.Component {
                 this.setState({clicked: true})
                 this.props.dispatch({
                   type: 'SAVE_LINK',
-                  // link: this.props.result.link
+                  link: this.props.result.url
                 })
                 this.props.navigation.navigate('WebView', {title: 'Explore More'})
               }
               }
               >
-                <Text style={styles.link}>Bing Result</Text>
+                <Text style={styles.link}>{this.props.result.name}</Text>
               </TouchableOpacity>
             </CardItem>
             <CardItem bordered>
               <Body>
-                <Text style={styles.text}></Text>
+                <Text style={styles.text}>{this.props.result.snippet}</Text>
               </Body>
             </CardItem>
           </Card>
@@ -45,7 +45,7 @@ class GoogleResultRow extends React.Component {
   }
 }
   
-export default connect(props => ({dispatch: props.dispatch}))(GoogleResultRow);
+export default connect(props => ({dispatch: props.dispatch}))(BingResultRow);
 
 styles = {
   container: {

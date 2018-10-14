@@ -27,10 +27,14 @@ class ScrollViewRow extends React.Component {
         style={styles.card}
       />
     } else if (this.props.type === 'bing') {
-      resultRow = <BingResultRow 
-        {...this.props}
-        style={styles.card}
-      />
+      resultRow =  this.props.bingResults.map(result => 
+        <BingResultRow 
+          {...this.props}
+          key={result.id} 
+          result={result} 
+          style={styles.card}
+        />
+      )
     }
     return (
       <ScrollView 
