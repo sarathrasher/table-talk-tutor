@@ -12,7 +12,6 @@ class BingResultRow extends React.Component {
   }
 
   render() {
-    console.log(this.props.result)
     return (
       <Container>
         <Content padder>

@@ -12,7 +12,6 @@ class GoogleResultRow extends React.Component {
   }
 
   render() {
-    console.log('Google')
     return (
       <Container>
         <Content padder>

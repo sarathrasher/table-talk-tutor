@@ -22,10 +22,14 @@ class ScrollViewRow extends React.Component {
         />
       )
     } else if (this.props.type === 'twitter') {
-      resultRow = <TwitterResultRow 
-        {...this.props}
-        style={styles.card}
-      />
+      resultRow = this.props.twitterResults.map(result =>
+        <TwitterResultRow 
+          {...this.props}
+          key={result.id}
+          style={styles.card}
+          result={result}
+        />
+      )
     } else if (this.props.type === 'bing') {
       resultRow =  this.props.bingResults.map(result => 
         <BingResultRow 

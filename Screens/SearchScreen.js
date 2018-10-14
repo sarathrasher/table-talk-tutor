@@ -5,18 +5,20 @@ import ScrollViewRow from '../Components/ScrollViewRow'
 let SearchScreen = (props) =>
   <View style={styles.container}>
     <ScrollViewRow 
+    type='twitter'
+    {...props}
+    style={{flex: 1}}
+    />
+    <ScrollViewRow 
       style={{flex: 1}}
       type='google' 
-      {...props}/>
+      {...props}
+    />
     <ScrollViewRow 
       style={{flex: 1}}
       type='bing' 
-      {...props}/>
-    <ScrollViewRow 
-      type='twitter'
       {...props}
-      style={{flex: 1}}
-      />
+    />
   </View>
 
 export default SearchScreen
