@@ -28,7 +28,6 @@ let selectSearchTerm = (oldState, action) => {
 }
 
 let loadGoogleResults = (oldState, action) => {
-  // console.log(action.googleResults)
   return {
     ...oldState,
     googleResults: action.googleResults,
@@ -36,7 +35,6 @@ let loadGoogleResults = (oldState, action) => {
 }
 
 let loadBingResults = (oldState, action) => {
-  // console.log(action.bingResults)
   return {
     ...oldState,
     bingResults: action.bingResults,
@@ -44,7 +42,6 @@ let loadBingResults = (oldState, action) => {
 }
 
 let loadTwitterResults = (oldState, action) => {
-  // console.log(action.twitterResults)
   return {
     ...oldState,
     twitterResults: action.twitterResults,

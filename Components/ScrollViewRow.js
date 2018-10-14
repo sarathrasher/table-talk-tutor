@@ -69,6 +69,6 @@ const styles = StyleSheet.create({
   },
   card: {
     width: 100,
-    height: 200
+    height: (Dimensions.get('window').height * 0.2), 
   }
 });

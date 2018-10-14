@@ -7,7 +7,6 @@ let TrendRow = (props) =>
   style={styles.container}
   onPress={
     () => {
-      console.log(props.trend.name)
       props.dispatch({
         type: 'SELECT_TREND',
         trend: props.trend.name
