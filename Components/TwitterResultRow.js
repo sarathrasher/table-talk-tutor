@@ -12,9 +12,6 @@ class TwitterResultRow extends React.Component {
   }
 
   render() {
-    console.log(this.props.result)
-    console.log(this.props.result.user.screen_name);
-    console.log(this.props.result.id_str)
     return (
       <ScrollView>
         <Content padder>

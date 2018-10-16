@@ -11,7 +11,7 @@ let selectTrend = (oldState, action) => {
     error: action.error,
     searchText: {
       ...oldState.searchText,
-      selectedTrend: `${action.trend} `
+      selectedTrend: action.trend
     }
   }
 }
@@ -22,7 +22,7 @@ let selectSearchTerm = (oldState, action) => {
     error: action.error,
     searchText: {
       ...oldState.searchText,
-      selectedSearchTerm: `${action.term} `
+      selectedSearchTerm: action.term
     }
   }
 }
