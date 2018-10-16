@@ -12,21 +12,24 @@ class TwitterResultRow extends React.Component {
   }
 
   render() {
+    console.log(this.props.result)
+    console.log(this.props.result.user.screen_name);
+    console.log(this.props.result.id_str)
     return (
       <ScrollView>
         <Content padder>
           <Card style={{width: (Dimensions.get('window').width * 0.8)}}>
             <CardItem header bordered>
             <TouchableOpacity
-              // onPress={() => {
-              //   this.setState({clicked: true})
-              //   this.props.dispatch({
-              //     type: 'SAVE_LINK',
-              //     link: this.props.result.source
-              //   })
-              //   this.props.navigation.navigate('WebView', {title: 'Explore More'})
-              // }
-              // }
+              onPress={() => {
+                this.setState({clicked: true})
+                this.props.dispatch({
+                  type: 'SAVE_LINK',
+                  link: `https://twitter.com/${this.props.result.user.screen_name}/status/${this.props.result.id_str}`
+                })
+                this.props.navigation.navigate('WebView', {title: 'Explore More'})
+              }
+              }
               >
                 <Text style={styles.link}>{this.props.result.text}</Text>
               </TouchableOpacity>

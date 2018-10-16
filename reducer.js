@@ -42,6 +42,7 @@ let loadBingResults = (oldState, action) => {
 }
 
 let loadTwitterResults = (oldState, action) => {
+  console.log(action.twitterResults)
   return {
     ...oldState,
     twitterResults: action.twitterResults,
@@ -63,28 +64,13 @@ let handleError = (oldState, action) => {
 }
 
 let saveSearchText = (oldState, action) => {
-  let newString = ''
-  if (!action.searchTextInput.includes(oldState.selectedTrend) && !action.searchTextInput.includes(oldState.selectedSearchTerm)) {
-    newString = action.searchTextInput
-  } else if (action.searchTextInput.includes(oldState.selectedTrend) && action.searchTextInput.includes(oldState.selectedSearchTerm)) {
-    let replacedString = action.searchTextInput.replace(`${oldState.selectedTrend} `, '');
-    newString = replacedString.replace(`${oldState.selectedSearchTerm} `, '');
-  }
-  else if (action.searchTextInput.includes(oldState.selectedSearchTerm) && !action.searchTextInput.includes(selectedTrend)) {
-    newString = action.searchTextInput.replace(`${oldState.selectedSearchTerm} `, '');
-  } 
-  else if (action.searchTextInput.includes(oldState.selectedTrend) && !action.searchTextInput.includes(selectedSearchTerm)) {
-    newString = action.searchTextInput.replace(`${oldState.selectedTrend} `, '');
-  } 
-
   return {
     ...oldState,
       error: action.error,
       searchText: {
         ...oldState.searchText,
-        searchTextInput: newString
+        searchTextInput: action.searchTextInput
       }
-
   }
 }
 
