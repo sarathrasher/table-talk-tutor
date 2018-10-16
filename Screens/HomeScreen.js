@@ -3,10 +3,16 @@ import { StyleSheet, View } from 'react-native';
 
 import FetchTrends from '../Components/FetchTrends'
 
-let HomeScreen = () =>
-  <View style={styles.container}>
-    <FetchTrends />
-  </View>
+class HomeScreen extends React.Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <FetchTrends />
+      </View>
+    )
+  }
+}
+
 
 export default HomeScreen;
 
