@@ -55,6 +55,7 @@ class SearchForm extends React.Component {
     } else {
       return (
         <View style={styles.inputContainer}>
+          <Text style={styles.errorText}></Text>
           <Button 
             backgroundColor='#ff3355'
             style={styles.button}
