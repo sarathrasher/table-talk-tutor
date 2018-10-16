@@ -44,12 +44,8 @@ class SearchForm extends React.Component {
             title='Search' 
             onPress={ () => {
               if (this.props.searchText.searchTextInput === '' && this.props.searchText.selectedSearchTerm === '' && this.props.searchText.selectedTrend === '') {
-                console.log('error')
-                console.log(this.props.searchText)
                 this.error();
               } else {
-                console.log('success')
-                console.log(this.props.searchText)
                 this.fetchSearchResults();
               }
             }}
@@ -66,12 +62,8 @@ class SearchForm extends React.Component {
             title='Search' 
             onPress={ () => {
               if (this.props.searchText.searchTextInput === '' && this.props.searchText.selectedSearchTerm === '' && this.props.searchText.selectedTrend === '') {
-                console.log('error')
-                console.log(this.props.searchText)
                 this.error();
               } else {
-                console.log('success')
-                console.log(this.props.searchText)
                 this.fetchSearchResults();
               }
             }}
