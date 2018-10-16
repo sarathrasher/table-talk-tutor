@@ -13,6 +13,7 @@ let initialState = {
     selectedSearchTerm: '',
     selectedTrend: ''
   },
+  error: false,
 };
 
 let store = createStore(

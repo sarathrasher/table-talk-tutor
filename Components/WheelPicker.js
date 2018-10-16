@@ -81,7 +81,8 @@ class WheelPicker extends React.Component {
             onValueChange={(value) => {
               this.props.dispatch({
                 type: 'SELECT_TREND',
-                trend: value
+                trend: value,
+                error: false,
               })
             }}
             onUpArrow={() => {
@@ -108,7 +109,8 @@ class WheelPicker extends React.Component {
             onValueChange={(value) => {
               this.props.dispatch({
                 type: 'SELECT_SEARCH_TERM',
-                term: value
+                term: value,
+                error: false,
               })
             }}
             onUpArrow={() => {
@@ -136,7 +138,8 @@ class WheelPicker extends React.Component {
           onChangeText={(text) =>
             this.props.dispatch({
               type: 'SAVE_SEARCH_TEXT',
-              searchTextInput: text 
+              searchTextInput: text,
+              error: false,
             })}
         />
       </View>
@@ -157,7 +160,8 @@ const styles = StyleSheet.create({
   },
   text: {
     textAlign: 'center',
-    fontSize: 16
+    fontSize: 16,
+    paddingBottom: 10,
   },
   input: {
     paddingTop: 13,
