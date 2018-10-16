@@ -1,7 +1,7 @@
 import SERVER_URL from '../env';
 
 let fetchBingResults = (props) => {
-  fetch(SERVER_URL + 'bing/' + props.searchText.selectedTrend + props.searchText.selectedSearchTerm + props.searchText.searchTextInput)
+  fetch(`${SERVER_URL}bing/${props.searchText.selectedTrend} ${props.searchText.selectedSearchTerm} ${props.searchText.searchTextInput}`)
   .then(res => {
     let response = res.text();
     return response
