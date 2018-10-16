@@ -8,7 +8,7 @@ let loadTrends = (oldState, action) => {
 let selectTrend = (oldState, action) => {
   return {
     ...oldState,
-    selectedTrend: action.trend,
+    error: action.error,
     searchText: {
       ...oldState.searchText,
       selectedTrend: `${action.trend} `
@@ -19,7 +19,7 @@ let selectTrend = (oldState, action) => {
 let selectSearchTerm = (oldState, action) => {
   return {
     ...oldState,
-    selectedSearchTerm: action.term,
+    error: action.error,
     searchText: {
       ...oldState.searchText,
       selectedSearchTerm: `${action.term} `
@@ -55,6 +55,13 @@ let saveLink = (oldState, action) => {
   }
 }
 
+let handleError = (oldState, action) => {
+  return {
+    ...oldState,
+    error: action.error
+  }
+}
+
 let saveSearchText = (oldState, action) => {
   let newString = ''
   if (!action.searchTextInput.includes(oldState.selectedTrend) && !action.searchTextInput.includes(oldState.selectedSearchTerm)) {
@@ -72,7 +79,7 @@ let saveSearchText = (oldState, action) => {
 
   return {
     ...oldState,
-      searchTextInput: action.searchTextInput,
+      error: action.error,
       searchText: {
         ...oldState.searchText,
         searchTextInput: newString
@@ -89,7 +96,8 @@ let reducers = {
   'LOAD_BING_RESULTS': loadBingResults,
   'LOAD_TWITTER_RESULTS': loadTwitterResults,
   'SAVE_LINK': saveLink,
-  'SAVE_SEARCH_TEXT': saveSearchText
+  'SAVE_SEARCH_TEXT': saveSearchText,
+  'HANDLE_ERROR': handleError,
 }
 
 let reducer = (oldState, action) => {
