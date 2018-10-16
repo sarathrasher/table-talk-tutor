@@ -10,6 +10,24 @@ class TrendsScreen extends React.Component {
   constructor(props) {
     super(props);
   }
+
+  static navigationOptions = ({navigation}) => ({
+    title: 'Discover',
+    headerStyle: {
+      backgroundColor: '#2962ff',
+    },
+    headerTitleStyle: {
+      fontWeight: 'bold',
+      color: '#FFF',
+      zIndex: 1,
+      fontSize: 20,
+      lineHeight: 23,
+      // fontFamily: 'CircularStd-Bold'
+    },
+    headerTintColor: '#fff',
+    animationEnabled: true
+    })
+
   componentDidMount() {
     fetch(SERVER_URL + 'trends')
       .then(res => {

@@ -69,78 +69,78 @@ class WheelPicker extends React.Component {
       })
     })
     return (
-        <View style={styles.container}>
-          <View style={{ paddingVertical: 5 }}>
-            <Text style={styles.text}>Select a Trending Topic</Text>
-            <RNPickerSelect
-              placeholder={{
-                  label: 'Select a trending topic...',
-                  value: '',
-              }}
-              items={trends}
-              onValueChange={(value) => {
-                this.props.dispatch({
-                  type: 'SELECT_TREND',
-                  trend: value
-                })
-              }}
-              onUpArrow={() => {
-                  this.inputRefs.name.focus();
-              }}
-              onDownArrow={() => {
-                  this.inputRefs.picker2.togglePicker();
-              }}
-              style={{ ...pickerSelectStyles }}
-              value={this.state.selectedTrend}
-              ref={(el) => {
-                  this.inputRefs.picker = el;
-              }}
-            />
-          </View>
-          <View style={{ paddingVertical: 5 }}>
-            <Text style={styles.text}>Select a Search Term</Text>
-            <RNPickerSelect
-              placeholder={{
-                  label: 'Select a search term...',
-                  value: '',
-              }}
-              items={this.state.terms}
-              onValueChange={(value) => {
-                this.props.dispatch({
-                  type: 'SELECT_SEARCH_TERM',
-                  term: value
-                })
-              }}
-              onUpArrow={() => {
-                  this.inputRefs.picker.togglePicker();
-              }}
-              onDownArrow={() => {
-                  this.inputRefs.company.focus();
-              }}
-              style={{ ...pickerSelectStyles }}
-              value={this.state.selectedSearchTerm}
-              ref={(el) => {
-                  this.inputRefs.picker2 = el;
-              }}
-            />
-        </View>
-        <View style={styles.input}>
-          <Text style={styles.text}>Add Additional Comments</Text>
-          <TextInput
-            placeholder='Add additional comments...'
-            ref={(el) => {
-                this.inputRefs.company = el;
+      <View style={styles.container}>
+        <View style={{ paddingVertical: 5 }}>
+          <Text style={styles.text}>Select a Trending Topic</Text>
+          <RNPickerSelect
+            placeholder={{
+                label: 'Select a trending topic...',
+                value: '',
             }}
-            returnKeyType="done"
-            style={pickerSelectStyles.inputIOS}
-            onChangeText={(text) =>
+            items={trends}
+            onValueChange={(value) => {
               this.props.dispatch({
-                type: 'SAVE_SEARCH_TEXT',
-                searchTextInput: text 
-              })}
+                type: 'SELECT_TREND',
+                trend: value
+              })
+            }}
+            onUpArrow={() => {
+                this.inputRefs.name.focus();
+            }}
+            onDownArrow={() => {
+                this.inputRefs.picker2.togglePicker();
+            }}
+            style={{ ...pickerSelectStyles }}
+            value={this.state.selectedTrend}
+            ref={(el) => {
+                this.inputRefs.picker = el;
+            }}
           />
         </View>
+        <View style={{ paddingVertical: 5 }}>
+          <Text style={styles.text}>Select a Search Term</Text>
+          <RNPickerSelect
+            placeholder={{
+                label: 'Select a search term...',
+                value: '',
+            }}
+            items={this.state.terms}
+            onValueChange={(value) => {
+              this.props.dispatch({
+                type: 'SELECT_SEARCH_TERM',
+                term: value
+              })
+            }}
+            onUpArrow={() => {
+                this.inputRefs.picker.togglePicker();
+            }}
+            onDownArrow={() => {
+                this.inputRefs.company.focus();
+            }}
+            style={{ ...pickerSelectStyles }}
+            value={this.state.selectedSearchTerm}
+            ref={(el) => {
+                this.inputRefs.picker2 = el;
+            }}
+          />
       </View>
+      <View style={styles.input}>
+        <Text style={styles.text}>Add Additional Comments</Text>
+        <TextInput
+          placeholder='Add additional comments...'
+          ref={(el) => {
+              this.inputRefs.company = el;
+          }}
+          returnKeyType="done"
+          style={pickerSelectStyles.inputIOS}
+          onChangeText={(text) =>
+            this.props.dispatch({
+              type: 'SAVE_SEARCH_TEXT',
+              searchTextInput: text 
+            })}
+        />
+      </View>
+    </View>
     );
   }
 }

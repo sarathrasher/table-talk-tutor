@@ -2,10 +2,18 @@ import SearchScreen from '../Screens/SearchScreen'
 import { createStackNavigator } from 'react-navigation';
 import SmartTrendsScreen from '../Screens/TrendsScreen';
 import WebViewScreen from '../Screens/WebViewScreen'
+import LoadingHomeScreen from './LoadingHomeScreen';
+
+// class Routes extends React.Component {
 
 const Routes = createStackNavigator(
   {
-    Home: {
+    // Home: {
+    //   screen: LoadingHomeScreen,
+    //   title: 'Table Talk Tutor'
+    // },
+
+    Discover: {
       screen: SmartTrendsScreen,
       title: 'Discover'
     },
@@ -18,25 +26,6 @@ const Routes = createStackNavigator(
       title: 'Explore More'
     }
   },
-  {
-    initialRouteName: 'Home',
-    navigationOptions: {
-      title: 'Discover',
-      headerStyle: {
-        backgroundColor: '#2962ff',
-      },
-      headerTitleStyle: {
-        fontWeight: 'bold',
-        color: '#FFF',
-        zIndex: 1,
-        fontSize: 20,
-        lineHeight: 23,
-        // fontFamily: 'CircularStd-Bold'
-      },
-      headerTintColor: '#fff',
-      animationEnabled: true
-    },
-  }
-)
+);
 
 export default Routes;
