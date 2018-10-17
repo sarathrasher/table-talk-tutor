@@ -16,6 +16,8 @@ Sara Muntean
 ## Getting Started
 To run this application you must have Expo installed on your computer. Once you `git clone` the repository onto your local machine and install Expo, run `npm install` followed by `npm start`. This will open the application in Expo. You can either view the app using the Expo mobile application on your iPhone, or run on the iOS simulator on the Expo browser tab.
 
+![](../TableTalkDemo2.gif)
+
 ## Challenges
 
 ### React Native
